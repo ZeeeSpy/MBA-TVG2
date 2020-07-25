@@ -1,0 +1,48 @@
+﻿/*
+ *  Script used for all intreractable objects.
+ */
+using UnityEngine;
+using UnityEngine.UI;
+
+public class InteractScript : MonoBehaviour
+{
+	//TODO figure out what the fuck Level1TextStuff is 
+    //public Level1TextStuff UIText;
+    public Text interacticon;
+
+    void Update()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 1f))
+        {
+            interacticon.enabled = true;
+            Interactable InteractedObject = hit.collider.GetComponent<Interactable>();
+            if (InteractedObject != null)
+            {
+                if (Input.GetButtonDown("Interact"))
+                {
+                    Interact(hit);
+                }
+            } else
+            {
+                interacticon.enabled = false;
+            }
+        } else
+        {
+            interacticon.enabled = false;
+        }
+        
+
+    }
+
+    private void Interact(RaycastHit hit)
+    {
+        //UIText.showtext(hit.collider.GetComponent<Interactable>().InteractWithObject());
+    }
+
+    public void DiplayText(string textodisp)
+    {
+        //UIText.showtext(textodisp);
+    }
+}
