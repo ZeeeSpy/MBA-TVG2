@@ -497,6 +497,26 @@ PrefabInstance:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4643302887117256222, guid: cbc2200382e0fad44ad524139fb80779,
+        type: 3}
+      propertyPath: GunShotSFX.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643302887117256222, guid: cbc2200382e0fad44ad524139fb80779,
+        type: 3}
+      propertyPath: GunShotSFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643302887117256222, guid: cbc2200382e0fad44ad524139fb80779,
+        type: 3}
+      propertyPath: GunShotSFX.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08299e53f0cab4e48adca46de40c5588, type: 3}
+    - target: {fileID: 4643302887117256222, guid: cbc2200382e0fad44ad524139fb80779,
+        type: 3}
+      propertyPath: GunShotSFX.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 01011974b041e0448a8b974d0fd0d78a, type: 3}
     m_RemovedComponents:
     - {fileID: 4643302886485764299, guid: cbc2200382e0fad44ad524139fb80779, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cbc2200382e0fad44ad524139fb80779, type: 3}
