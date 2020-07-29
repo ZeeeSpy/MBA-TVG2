@@ -33,9 +33,10 @@ public class JumpMyrowController : MonoBehaviour
 			rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
 		}
 
-		isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), new Vector2(0.7f, 0.25f), 0f, groundMask);
+		isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), 
+			new Vector2(0.7f, 0.25f), 0f, groundMask);
 
-		if (jumpValue > 0)
+		if (!isGrounded)
 		{
 			rb.sharedMaterial = bounceMat;
 		}
