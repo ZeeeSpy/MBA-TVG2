@@ -36,7 +36,7 @@ public class JumpMyrowController : MonoBehaviour
 		isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), 
 			new Vector2(0.7f, 0.25f), 0f, groundMask);
 
-		if (!isGrounded)
+		if (!isGrounded && canJump == false)
 		{
 			rb.sharedMaterial = bounceMat;
 		}
