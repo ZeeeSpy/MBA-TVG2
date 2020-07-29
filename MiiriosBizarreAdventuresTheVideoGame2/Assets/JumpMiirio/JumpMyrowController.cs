@@ -33,7 +33,7 @@ public class JumpMyrowController : MonoBehaviour
 			rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
 		}
 
-		isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f), new Vector2(0.9f, 0.4f), 0f, groundMask);
+		isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), new Vector2(0.7f, 0.25f), 0f, groundMask);
 
 		if (jumpValue > 0)
 		{
@@ -46,18 +46,18 @@ public class JumpMyrowController : MonoBehaviour
 
 		if(Input.GetButton("Jump") && isGrounded && canJump)
 		{
-			jumpValue += 0.2f;
+			jumpValue += 0.3f;
 			rb.velocity = new Vector2(0.0f, rb.velocity.y);
 		}
 
 
 
-		if (jumpValue >= 20f && isGrounded)
+		if (jumpValue >= 21f && isGrounded)
 		{
 			float tempx = moveInput * walkSpeed;
 			float tempy = jumpValue;
 			rb.velocity = new Vector2(tempx, tempy);
-			Invoke("ResetJump", 0.2f);
+			Invoke("ResetJump", 0.1f);
 		}
 
 		if (Input.GetButtonUp("Jump"))
@@ -77,9 +77,9 @@ public class JumpMyrowController : MonoBehaviour
 		jumpValue = 0;
 	}
 
-	private void OnDrawGizmosSelected()
+	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;
-		Gizmos.DrawCube(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f), new Vector2(0.9f, 0.4f));
+		Gizmos.DrawCube(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), new Vector2(0.7f, 0.25f));
 	}
 }
