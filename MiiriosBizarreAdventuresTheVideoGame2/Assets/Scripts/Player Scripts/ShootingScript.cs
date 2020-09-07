@@ -32,11 +32,11 @@ public class ShootingScript : MonoBehaviour
 
 	void Update()
     {
-		if (Input.GetButton("1"))
+		if (Input.GetButton("Weapon 1"))
 		{
 			WeaponSwitch(0);
 		}
-		else if (Input.GetButton("2"))
+		else if (Input.GetButton("Weapon 2"))
 		{
 			WeaponSwitch(1);
 		}
