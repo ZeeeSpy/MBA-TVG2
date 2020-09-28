@@ -78,9 +78,12 @@ public class JumpMyrowController : MonoBehaviour
 		jumpValue = 0;
 	}
 
+	//For debugging landing collisions
+	/*
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawCube(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), new Vector2(0.6f, 0.25f));
 	}
+	*/
 }
