@@ -47,7 +47,7 @@ public class JumpMyrowController : MonoBehaviour
 
 		if(Input.GetButton("Jump") && isGrounded && canJump)
 		{
-			jumpValue += 0.3f;
+			jumpValue += 0.6f;
 			rb.velocity = new Vector2(0.0f, rb.velocity.y);
 		}
 
@@ -81,6 +81,6 @@ public class JumpMyrowController : MonoBehaviour
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;
-		Gizmos.DrawCube(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), new Vector2(0.7f, 0.25f));
+		Gizmos.DrawCube(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), new Vector2(0.6f, 0.25f));
 	}
 }
