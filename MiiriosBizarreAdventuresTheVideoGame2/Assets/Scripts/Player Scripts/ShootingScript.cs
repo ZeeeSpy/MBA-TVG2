@@ -18,7 +18,9 @@ public class ShootingScript : MonoBehaviour
 	public GameObject[] GunGameObjects;
 	private bool Waiting = false;
 	private int CurrentWep = 0;
-	private float[] GunTimes = new float[]{0f,0.8f};
+	private float[] GunTimes = new float[]{0f,1.3f,1.4f};
+
+	private bool SwitchingEnabled = true;
 
 	// Update is called once per frame
 
@@ -32,13 +34,16 @@ public class ShootingScript : MonoBehaviour
 
 	void Update()
     {
-		if (Input.GetButton("Weapon 1"))
+		if (SwitchingEnabled)
 		{
-			WeaponSwitch(0);
-		}
-		else if (Input.GetButton("Weapon 2"))
-		{
-			WeaponSwitch(1);
+			if (Input.GetButton("Weapon 1"))
+			{
+				WeaponSwitch(0);
+			}
+			else if (Input.GetButton("Weapon 2"))
+			{
+				WeaponSwitch(1);
+			}
 		}
 
 
@@ -46,7 +51,14 @@ public class ShootingScript : MonoBehaviour
         {
             gunanimator.Play("Shoot");
             AS.PlayOneShot(GunShotSFX[CurrentWep]);
-            BulletScript();
+			if (CurrentWep == 2)
+			{
+				StartCoroutine(BulletScriptInter());
+			}
+			else
+			{
+				BulletScript();
+			}
 			StartCoroutine(WaitingNumerator());
         }
     }
@@ -80,4 +92,25 @@ public class ShootingScript : MonoBehaviour
             }
         }
     }
+
+	IEnumerator BulletScriptInter()
+	{
+		yield return new WaitForSeconds(0.5f);
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, transform.forward * 100000, out hit))
+		{
+			Shootable ObjectThatWasShot = hit.collider.GetComponent<Shootable>();
+
+			if (ObjectThatWasShot != null)
+			{
+				ObjectThatWasShot.GetShot();
+			}
+		}
+	}
+
+	public void InterventionLevel()
+	{ 
+		WeaponSwitch(2);
+		SwitchingEnabled = false;
+	}
 }
