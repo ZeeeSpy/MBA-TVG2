@@ -7,14 +7,16 @@ using UnityEngine;
 
 public class JumpMyrowController : MonoBehaviour
 {
+	public LayerMask groundMask;
 	private float walkSpeed = 5;
 	private float moveInput;
 	public bool isGrounded;
 	private Rigidbody2D rb;
-	public LayerMask groundMask;
+	
 
 	private const float maxjump = 21f;
 	public bool canJump = true;
+	public bool PressingSpace = false;
 	public float jumpValue = 0.0f;
 	public float devvalue = 0;
 
@@ -36,7 +38,7 @@ public class JumpMyrowController : MonoBehaviour
 		}
 
 		isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), 
-			new Vector2(0.7f, 0.25f), 0f, groundMask);
+			new Vector2(0.7f, 0.3f), 0f, groundMask);
 
 		if (!isGrounded && canJump == false)
 		{
@@ -47,10 +49,15 @@ public class JumpMyrowController : MonoBehaviour
 			rb.sharedMaterial = NormalMat;
 		}
 
+
 		if(Input.GetButton("Jump") && isGrounded && canJump)
 		{
 			jumpValue += 0.4f;
 			rb.velocity = new Vector2(0.0f, rb.velocity.y);
+			PressingSpace = true;
+		} else
+		{
+			PressingSpace = false;
 		}
 
 		if (jumpValue >= maxjump && isGrounded)
@@ -59,6 +66,8 @@ public class JumpMyrowController : MonoBehaviour
 			{
 				jumpValue = devvalue;
 			}
+
+
 			float tempx = moveInput * walkSpeed;
 			float tempy = jumpValue;
 			rb.velocity = new Vector2(tempx, tempy);
@@ -72,6 +81,10 @@ public class JumpMyrowController : MonoBehaviour
 				rb.velocity = new Vector2(moveInput * walkSpeed, jumpValue);
 				jumpValue = 0;
 			}
+		}
+
+		if (isGrounded)
+		{
 			canJump = true;
 		}
 	}
@@ -87,7 +100,7 @@ public class JumpMyrowController : MonoBehaviour
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;
-		Gizmos.DrawCube(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), new Vector2(0.6f, 0.25f));
+		Gizmos.DrawCube(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), new Vector2(0.81f, 0.25f));
 	}
 	*/
 }
