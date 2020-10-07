@@ -13,8 +13,10 @@ public class JumpMyrowController : MonoBehaviour
 	private Rigidbody2D rb;
 	public LayerMask groundMask;
 
+	private const float maxjump = 21f;
 	public bool canJump = true;
 	public float jumpValue = 0.0f;
+	public float devvalue = 0;
 
 	public PhysicsMaterial2D bounceMat, NormalMat;
 
@@ -47,14 +49,16 @@ public class JumpMyrowController : MonoBehaviour
 
 		if(Input.GetButton("Jump") && isGrounded && canJump)
 		{
-			jumpValue += 0.6f;
+			jumpValue += 0.4f;
 			rb.velocity = new Vector2(0.0f, rb.velocity.y);
 		}
 
-
-
-		if (jumpValue >= 21f && isGrounded)
+		if (jumpValue >= maxjump && isGrounded)
 		{
+			if (devvalue != 0)
+			{
+				jumpValue = devvalue;
+			}
 			float tempx = moveInput * walkSpeed;
 			float tempy = jumpValue;
 			rb.velocity = new Vector2(tempx, tempy);

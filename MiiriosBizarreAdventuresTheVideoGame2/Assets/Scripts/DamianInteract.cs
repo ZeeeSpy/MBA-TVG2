@@ -16,6 +16,7 @@ public class DamianInteract : MonoBehaviour,  Interactable
 			DamianScreen.SetActive(false);
 			BlackScreen.SetActive(true);
 			MyrowAudio.PlayOneShot(FuckOff);
+			Level1ObjectivesScript.Instance.UpdateObjectives(1);
 			Done = true;
 		}
 		return "";
