@@ -3,6 +3,9 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 MiiriosBizarreAdventuresTheVideoGame2/Assets/Assets/*
+MiiriosBizarreAdventuresTheVideoGame2/Assets/Sounds/*
+MiiriosBizarreAdventuresTheVideoGame2/Assets/Sounds/*
+MiiriosBizarreAdventuresTheVideoGame2/Assets/Objects/*
 MiiriosBizarreAdventuresTheVideoGame2/[Ll]ibrary/
 MiiriosBizarreAdventuresTheVideoGame2/[Tt]emp/
 MiiriosBizarreAdventuresTheVideoGame2/[Oo]bj/
