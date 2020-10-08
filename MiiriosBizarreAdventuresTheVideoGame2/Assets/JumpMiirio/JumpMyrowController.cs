@@ -20,6 +20,8 @@ public class JumpMyrowController : MonoBehaviour
 	public float jumpValue = 0.0f;
 	public float devvalue = 0;
 
+	private bool bouncing = false;
+
 	public PhysicsMaterial2D bounceMat, NormalMat;
 
     void Start()
@@ -42,11 +44,15 @@ public class JumpMyrowController : MonoBehaviour
 
 		if (!isGrounded && canJump == false)
 		{
-			rb.sharedMaterial = bounceMat;
+			if (!bouncing)
+			{
+				StartCoroutine(StopBounce());
+			}
 		}
 		else
 		{
 			rb.sharedMaterial = NormalMat;
+			bouncing = false;
 		}
 
 
@@ -93,6 +99,14 @@ public class JumpMyrowController : MonoBehaviour
 	{
 		canJump = false;
 		jumpValue = 0;
+	}
+
+	IEnumerator StopBounce()
+	{
+		bouncing = true;
+		rb.sharedMaterial = bounceMat;
+		yield return new WaitForSeconds(0.2f);
+		rb.sharedMaterial = NormalMat;
 	}
 
 	//For debugging landing collisions
