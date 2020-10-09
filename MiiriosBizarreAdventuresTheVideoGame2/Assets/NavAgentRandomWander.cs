@@ -13,12 +13,22 @@ public class NavAgentRandomWander : MonoBehaviour
 	public GameObject NodeParent;
 	private Vector3[] ListOfNodes;
 	private Transform Player;
+	private PlayerScript PS;
+
+	private LineRenderer LR;
 
 	private bool searchlocked = false;
+	private bool hasstopped = false;
+	private bool StopLingRunning = false;
 
-    void Start()
-    {
+	private AudioSource AS;
+	public AudioClip AC;
+
+
+	void Start()
+	{
 		Player = GameObject.FindGameObjectWithTag("Player").transform;
+		PS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
 
 		ListOfNodes = new Vector3[NodeParent.transform.childCount];
 		int temp = 0;
@@ -31,11 +41,19 @@ public class NavAgentRandomWander : MonoBehaviour
 
 		NMA = GetComponent<NavMeshAgent>();
 		CR = StartCoroutine(Wander());
-    }
 
-    IEnumerator Wander()
+		AS = GetComponent<AudioSource>();
+
+		LR = GetComponent<LineRenderer>();
+		Material RedMat = new Material(Shader.Find("Unlit/Color"));
+		LR.material = RedMat;
+		LR.material.color = Color.red;
+	}
+
+	IEnumerator Wander()
 	{
-		while (true) {
+		while (true)
+		{
 			GetNextDestination();
 			yield return new WaitForSeconds(Random.Range(5, 20));
 		}
@@ -43,7 +61,7 @@ public class NavAgentRandomWander : MonoBehaviour
 
 	private void Update()
 	{
-		if (Vector3.Distance(CurrentDestination, transform.position) < MinRange) 
+		if (Vector3.Distance(CurrentDestination, transform.position) < MinRange)
 		{
 			GetNextDestination();
 		}
@@ -53,31 +71,62 @@ public class NavAgentRandomWander : MonoBehaviour
 		{
 			if (hit.transform.tag == "Player")
 			{
+				LR.enabled = true;
 				GetFarDesination();
 			}
+			else
+			{
+				LR.enabled = false;
+			}
 		}
+
+		LR.SetPosition(0, transform.position);
+		LR.SetPosition(1, hit.point + new Vector3(0, 0.5f));
 	}
 
 	private void GetNextDestination()
 	{
-		CurrentDestination = ListOfNodes[Random.Range(0,ListOfNodes.Length)];
+		CurrentDestination = ListOfNodes[Random.Range(0, ListOfNodes.Length)];
 		NMA.SetDestination(CurrentDestination);
 	}
 
 	private void GetFarDesination()
 	{
+		if (!hasstopped)
+		{
+			if (!StopLingRunning)
+			{
+				StartCoroutine(StopLing());
+			}
+			else
+			{
+				return;
+			}
+		}
+
 		if (!searchlocked)
 		{
-			Debug.Log("Searching For Furthest");
 			StartCoroutine(LockSearch());
 			Vector3 Furthest = ListOfNodes[0];
 			float currentdistance = -100;
 
 			for (int i = 0; i < ListOfNodes.Length; i++)
 			{
-				if (Vector3.Distance(ListOfNodes[i], Player.position) > currentdistance) {
-					Furthest = ListOfNodes[i];
-					currentdistance = Vector3.Distance(ListOfNodes[i], Player.position);
+				if (Vector3.Distance(ListOfNodes[i], Player.position) > currentdistance)
+				{
+					RaycastHit hit;
+					if (Physics.Linecast(ListOfNodes[i], Player.position, out hit))
+					{
+						if (hit.transform.tag == "Player")
+						{
+							continue;
+						}
+						else
+						{
+							Furthest = ListOfNodes[i];
+							currentdistance = Vector3.Distance(ListOfNodes[i], Player.position);
+						}
+					}
 				}
 			}
 			CurrentDestination = Furthest;
@@ -88,7 +137,35 @@ public class NavAgentRandomWander : MonoBehaviour
 	IEnumerator LockSearch()
 	{
 		searchlocked = true;
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(10f);
 		searchlocked = false;
+	}
+
+	IEnumerator StopLing()
+	{
+		StopLingRunning = true;
+		NMA.isStopped = true;
+
+		AS.PlayOneShot(AC);
+		yield return new WaitForSeconds(0.7f);
+		RaycastHit hit;
+		if (Physics.Linecast(transform.position, Player.position, out hit))
+		{
+			if (hit.transform.tag == "Player")
+			{
+				PS.Damage(5);
+			}
+			else
+			{
+				Debug.Log("Missed");
+			}
+		}
+
+		yield return new WaitForSeconds(Random.Range(0.2f, 0.7f));
+		NMA.isStopped = false;
+		hasstopped = true;
+		yield return new WaitForSeconds(10f);
+		StopLingRunning = false;
+		hasstopped = false;
 	}
 }
