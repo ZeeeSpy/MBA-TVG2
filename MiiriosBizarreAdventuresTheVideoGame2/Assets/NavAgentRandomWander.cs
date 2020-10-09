@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class NavAgentRandomWander : MonoBehaviour
 {
@@ -168,4 +169,6 @@ public class NavAgentRandomWander : MonoBehaviour
 		StopLingRunning = false;
 		hasstopped = false;
 	}
+
+
 }
