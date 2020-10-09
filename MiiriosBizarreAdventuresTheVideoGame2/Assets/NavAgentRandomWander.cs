@@ -153,7 +153,7 @@ public class NavAgentRandomWander : MonoBehaviour
 		{
 			if (hit.transform.tag == "Player")
 			{
-				PS.Damage(5);
+				PS.Damage(3);
 			}
 			else
 			{
