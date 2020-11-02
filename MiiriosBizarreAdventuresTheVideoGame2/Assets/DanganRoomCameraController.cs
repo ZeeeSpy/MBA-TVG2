@@ -41,6 +41,7 @@ public class DanganRoomCameraController : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit))
 			{
+				//Check if obejct is of type interactable
 				oldposition = transform.position;
 				oldrotation = transform.eulerAngles;
 				ClickedObjectPosition = hit.transform.position;
