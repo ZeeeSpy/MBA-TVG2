@@ -12,8 +12,9 @@ public class DanganRoomCameraController : MonoBehaviour
 	private const int MaxRotation = 40;
 	private const float zoomspeed = 20f;
 
-	public bool Zoom =false;
+	private bool Zoom =false;
 	private bool UnZoom = false;
+	private bool Zoomed = false;
 
 	private Vector3 oldposition;
 	private Vector3 TargetPosition;
@@ -35,25 +36,29 @@ public class DanganRoomCameraController : MonoBehaviour
 			Spinner.localEulerAngles = new Vector3(Spinner.localEulerAngles.x, currentRotation, Spinner.localEulerAngles.z);
 		}
 
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) & !Zoomed)
 		{ 
 			Ray ray = thisCam.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit))
 			{
-				//Check if obejct is of type interactable
-				oldposition = transform.position;
-				oldrotation = transform.eulerAngles;
-				ClickedObjectPosition = hit.transform.position;
-				TargetPosition = (oldposition + ClickedObjectPosition) / 2;
-				Zoom = true;
-			}
-		}
+				if (hit.transform.GetComponent<InvestigationItem>() != null)
+				{
+					oldposition = transform.position;
+					oldrotation = transform.eulerAngles;
+					ClickedObjectPosition = hit.transform.position;
+					TargetPosition = (oldposition + ClickedObjectPosition) / 2;
+					Zoom = true;
+					Zoomed = true;
 
-		if (Input.GetMouseButtonDown(1))
-		{
-			UnZoom = true;
-			TargetPosition = oldposition;
+					hit.transform.GetComponent<InvestigationItem>().InteractWithObj();
+				}
+
+				else if (hit.transform.GetComponent<DanganDoorSwitcher>() != null)
+				{
+					hit.transform.GetComponent<DanganDoorSwitcher>().ExitRoom();
+				}
+			}
 		}
 
 		if (Zoom)
@@ -67,6 +72,7 @@ public class DanganRoomCameraController : MonoBehaviour
 
 			if (Vector3.Distance(transform.position, TargetPosition) == 0){
 				Zoom = false;
+				TargetPosition = oldposition;
 			}
 		}
 
@@ -81,9 +87,14 @@ public class DanganRoomCameraController : MonoBehaviour
 			if (Vector3.Distance(transform.position, TargetPosition) == 0)
 			{
 				UnZoom = false;
+				Zoomed = false;
 			}
 		}
 	}
 
 
+	public void Done()
+	{
+		UnZoom = true;
+	}
 }

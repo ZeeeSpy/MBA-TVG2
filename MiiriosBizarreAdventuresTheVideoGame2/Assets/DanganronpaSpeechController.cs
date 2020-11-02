@@ -13,6 +13,7 @@ public class DanganronpaSpeechController : MonoBehaviour
 	public GameObject HUD;
 
 	private DanganCharacter incChar;
+	private InvestigationItem incItem;
 	private string[] dia;
 	private int diacount = 1;
 
@@ -41,6 +42,19 @@ public class DanganronpaSpeechController : MonoBehaviour
 		TextDialogue.text = incdia[0];
 	}
 
+	public void StartTalk(string incname, string[] incdia, InvestigationItem _incItem)
+	{
+		HUD.SetActive(false);
+		CharacterSpeech.enabled = true;
+		TextDialogue.text = incdia[0];
+		TextName.text = incname;
+		dia = incdia;
+		incChar = null;
+		incItem = _incItem;
+
+		StartCoroutine(DelayASec());
+	}
+
 	private void Update()
 	{
 		if (StartedToTalk)
@@ -55,7 +69,14 @@ public class DanganronpaSpeechController : MonoBehaviour
 					TextDialogue.text = "";
 					diacount = 1;
 					HUD.SetActive(true);
-					incChar.StopInteract();
+					if (incChar != null)
+					{
+						incChar.StopInteract();
+					}
+					else
+					{
+						incItem.StopInteract();
+					}
 				}
 				else
 				{
@@ -64,5 +85,11 @@ public class DanganronpaSpeechController : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	IEnumerator DelayASec()
+	{
+		yield return new WaitForSeconds(0.1f);
+		StartedToTalk = true;
 	}
 }

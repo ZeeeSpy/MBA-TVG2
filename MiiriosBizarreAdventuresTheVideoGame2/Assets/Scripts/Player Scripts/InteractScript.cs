@@ -40,7 +40,10 @@ public class InteractScript : MonoBehaviour
 	private void Interact(RaycastHit hit)
 	{
 		UIText.text = (hit.collider.GetComponent<Interactable>().InteractWithObject());
-		StartCoroutine(ClearText());
+		if (UIText.text != "")
+		{
+			StartCoroutine(ClearText());
+		}
 	}
 
 	private IEnumerator ClearText()

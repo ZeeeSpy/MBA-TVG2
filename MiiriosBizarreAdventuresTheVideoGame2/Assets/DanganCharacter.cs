@@ -8,9 +8,19 @@ public class DanganCharacter : MonoBehaviour, Interactable
 	private Vector3 startposition;
 	private Transform playerlocation;
 	GameObject player;
-	public string CharacterName = "Placeholder";
-	private string[]Dialogue = new string[5]{"Test 1","Test 2","Test 3","Test 4","Test 5"};
+	public string CharacterName;
+	private string[] Dialogue;
+	public TextAsset TA;
 
+
+	private void Start()
+	{
+		startposition = transform.position;
+		player = GameObject.FindGameObjectWithTag("Player");
+		playerlocation = player.transform;
+
+		Dialogue = TA.text.Split('\n');
+	}
 
 	public string InteractWithObject()
 	{
@@ -18,13 +28,6 @@ public class DanganCharacter : MonoBehaviour, Interactable
 		player.GetComponent<FirstPersonController>().enabled = false;
 		DanganronpaSpeechController.instance.StartTalk(CharacterName,Dialogue, this);
 		return null;
-	}
-
-	private void Start()
-	{
-		startposition = transform.position;
-		player = GameObject.FindGameObjectWithTag("Player");
-		playerlocation = player.transform;
 	}
 
 	public void StopInteract()

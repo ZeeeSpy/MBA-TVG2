@@ -1,0 +1,5 @@
+This is the first line of text
+this is the second line of text
+This a considerably longer line to see how it'll look
+a short line
+Final line before exiting dialogue
