@@ -28,4 +28,6 @@ public class DanganDoorSwitcher : MonoBehaviour, Interactable
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 	}
+
+	//add door sound
 }
