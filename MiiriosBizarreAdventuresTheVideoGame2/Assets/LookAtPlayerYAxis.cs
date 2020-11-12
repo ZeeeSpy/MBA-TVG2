@@ -13,7 +13,7 @@ public class LookAtPlayerYAxis : MonoBehaviour
 
 	private void LateUpdate()
 	{
-		var lookPos = playerlocation.position - transform.position;
+		var lookPos =  transform.position - playerlocation.position;
 		lookPos.y = 0;
 		var rotation = Quaternion.LookRotation(lookPos);
 		transform.rotation = rotation;
