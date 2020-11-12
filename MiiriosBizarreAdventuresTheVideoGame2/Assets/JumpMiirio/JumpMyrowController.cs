@@ -40,7 +40,7 @@ public class JumpMyrowController : MonoBehaviour
 		}
 
 		isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.4f), 
-			new Vector2(0.7f, 0.3f), 0f, groundMask);
+			new Vector2(0.81f, 0.3f), 0f, groundMask);
 
 		if (!isGrounded && canJump == false)
 		{
@@ -99,6 +99,13 @@ public class JumpMyrowController : MonoBehaviour
 	{
 		canJump = false;
 		jumpValue = 0;
+		StartCoroutine(CanJumpSoon());
+	}
+
+	IEnumerator CanJumpSoon()
+	{
+		yield return new WaitForSeconds(0.5f);
+
 	}
 
 	IEnumerator StopBounce()

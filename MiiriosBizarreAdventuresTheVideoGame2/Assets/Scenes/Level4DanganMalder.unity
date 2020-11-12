@@ -1970,7 +1970,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: FlyingFox
   TA: {fileID: 0}
-  CluesInDia: 
 --- !u!114 &903430886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2270,7 +2269,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Ceo's Of XboxGang
   TA: {fileID: 4900000, guid: 4d8bcbd159cd8fb4da663d356f9afc54, type: 3}
-  CluesInDia: 
 --- !u!114 &1064822091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2939,7 +2937,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Placeholder
   TA: {fileID: 0}
-  CluesInDia: 
 --- !u!1 &1428369643
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,7 +3270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1723347195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3288,7 +3285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Twitch Chat
   TA: {fileID: 0}
-  CluesInDia: 
 --- !u!114 &1723347196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3425,7 +3421,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Twitch
   TA: {fileID: 0}
-  CluesInDia: 
 --- !u!114 &1756855760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3611,7 +3606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1877056023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3625,8 +3620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: Lee Chaolan
-  TA: {fileID: 0}
-  CluesInDia: 
+  TA: {fileID: 4900000, guid: 5789d9da019ee554e9cdb3918126ce9b, type: 3}
 --- !u!114 &1877056024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3959,7 +3953,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: BandaiNamco
   TA: {fileID: 0}
-  CluesInDia: 
 --- !u!114 &1951156619
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 7c1032cea652d1741bdbe02f8a8e9acb
+  - enabled: 1
+    path: Assets/Scenes/Level1-MyrowHouse.unity
+    guid: 8368476350f708041aa3edfad7a565f1
+  - enabled: 1
+    path: Assets/Scenes/Level2-Graveyard.unity
+    guid: bc8703c4d6069b940a137cd8ef16f29e
+  - enabled: 1
+    path: Assets/Scenes/Level2Boss.unity
+    guid: 0c68aeebf85ef9c429560d41fdaaebf7
+  - enabled: 1
+    path: Assets/Scenes/Level3-MaldKing.unity
+    guid: 6faaeb79ff36a244b96e75f6f8d9d8d9
+  - enabled: 1
+    path: Assets/Scenes/Level4DanganMalder.unity
+    guid: 22d66982931a4ed4e8ee8d363a1744a8
   m_configObjects: {}
