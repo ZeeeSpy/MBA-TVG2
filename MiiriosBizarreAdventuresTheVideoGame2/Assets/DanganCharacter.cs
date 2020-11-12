@@ -11,8 +11,6 @@ public class DanganCharacter : MonoBehaviour, Interactable
 	public string CharacterName;
 	private string[] Dialogue;
 	public TextAsset TA;
-	public bool[] CluesInDia;
-	private const string ClueText = "<color=yellow>";
 
 
 	private void Start()
@@ -22,24 +20,13 @@ public class DanganCharacter : MonoBehaviour, Interactable
 		playerlocation = player.transform;
 
 		Dialogue = TA.text.Split('\n');
-
-		CluesInDia = new bool[Dialogue.Length];
-		for (int i = 0; i < Dialogue.Length; i++)
-		{
-			if (Dialogue[i].Contains(ClueText)) { 
-				CluesInDia[i] = true;
-			} else
-			{
-				CluesInDia[i] = false;
-			}
-		}
 	}
 
 	public string InteractWithObject()
 	{
 		transform.position = playerlocation.position + playerlocation.forward;
 		player.GetComponent<FirstPersonController>().enabled = false;
-		DanganronpaSpeechController.instance.StartTalk(CharacterName,Dialogue, this, CluesInDia);
+		DanganronpaSpeechController.instance.StartTalk(CharacterName,Dialogue, this);
 		return null;
 	}
 

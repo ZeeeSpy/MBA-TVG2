@@ -15,7 +15,6 @@ public class DanganronpaSpeechController : MonoBehaviour
 	private DanganCharacter incChar;
 	private InvestigationItem incItem;
 	private string[] dia;
-	private bool[] CluesInDia;
 	private int diacount = 1;
 
 	public bool StartedToTalk = false;
@@ -32,34 +31,29 @@ public class DanganronpaSpeechController : MonoBehaviour
 		}
 	}
 
-	public void StartTalk(string incname, string[] incdia, DanganCharacter _incchar, bool[] CluesInDia)
+	public void StartTalk(string incname, string[] incdia, DanganCharacter _incchar)
 	{
-		SpeechSetUp(incname, incdia, CluesInDia);
+		SpeechSetUp(incname, incdia);
 		incChar = _incchar;
 		StartedToTalk = true;
 		dia = incdia;
 	}
 
-	public void StartTalk(string incname, string[] incdia, InvestigationItem _incItem, bool[] CluesInDia)
+	public void StartTalk(string incname, string[] incdia, InvestigationItem _incItem)
 	{
-		SpeechSetUp(incname, incdia, CluesInDia);
+		SpeechSetUp(incname, incdia);
 		incChar = null;
 		incItem = _incItem;
 		StartCoroutine(DelayASec());
 	}
 
-	private void SpeechSetUp(string incname, string[] incdia, bool[] _CluesInDia)
+	private void SpeechSetUp(string incname, string[] incdia)
 	{
-		CluesInDia = _CluesInDia;
 		HUD.SetActive(false);
 		CharacterSpeech.enabled = true;
 		TextName.text = incname;
 		TextDialogue.text = incdia[0];
 		dia = incdia;
-		if (CluesInDia[0])
-		{
-			Debug.Log("there's a clue here!");
-		}
 	}
 
 	private void Update()
@@ -87,10 +81,6 @@ public class DanganronpaSpeechController : MonoBehaviour
 				}
 				else
 				{
-					if (CluesInDia[diacount])
-					{
-						Debug.Log("there's a clue here!");
-					}
 					TextDialogue.text = dia[diacount];
 					diacount += 1;
 				}
