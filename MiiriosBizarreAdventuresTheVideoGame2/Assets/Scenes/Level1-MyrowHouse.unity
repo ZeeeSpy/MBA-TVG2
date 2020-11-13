@@ -3689,6 +3689,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &661253044
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4700052134573800602, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4689128b16ce99b47a7cef20df20c4be, type: 3}
+    - target: {fileID: 4700052134573800602, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800603, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_Name
+      value: StageMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700052134573800613, guid: d83be669a1d7be848ad6694fb54c828b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d83be669a1d7be848ad6694fb54c828b, type: 3}
 --- !u!1001 &667244144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7153,6 +7232,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2753514, y: 4.44, z: 11.64}
   m_Center: {x: 0.3623246, y: 0.38, z: -4.59}
+--- !u!114 &1064567362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064567360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a05924e862b4324084210f9fbe6b921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stringtoret: 'Still XBOXGANG. Waiting on my XBOX Series X preorder to get here.
+    It''s taking a while but then again everyone''s trying to get one. I love XBOX
+    so much :) '
 --- !u!1001 &1065223244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11315,7 +11409,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 200.00009, y: 60.00003, z: 160.42625}
+  m_Size: {x: 211.3, y: 68.46, z: 171.4}
   m_Center: {x: -1.8189894e-12, y: 0.00011062621, z: -0.0001296997}
 --- !u!4 &1501850113 stripped
 Transform:
@@ -11323,6 +11417,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1501850110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1501850114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501850111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a05924e862b4324084210f9fbe6b921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stringtoret: This bad boy is filled with Lebron James number 6's. That SportsDirect
+    raid I did last year really did pay off.
 --- !u!1 &1506948414
 GameObject:
   m_ObjectHideFlags: 0
@@ -14389,7 +14497,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14487,8 +14595,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AS: {fileID: 0}
   AC:
-  - {fileID: 8300000, guid: 53988a93ca55cb14c9ca2e5952ee1d90, type: 3}
+  - {fileID: 8300000, guid: 2c6d5fc9237421146b0d408e0e1e7a69, type: 3}
   - {fileID: 8300000, guid: fdeb88a7e8bbb4a49aa194b602e0c878, type: 3}
+  - {fileID: 8300000, guid: 6663fa26ddc059a46a229e169e40d1bc, type: 3}
+  - {fileID: 8300000, guid: 53988a93ca55cb14c9ca2e5952ee1d90, type: 3}
+  - {fileID: 8300000, guid: e1ad8a0687e0a314ab31a7790ba3521d, type: 3}
+  Beep: {fileID: 8300000, guid: 04a790835f7ef4c4e8334f255f677fcc, type: 3}
 --- !u!1 &1946708154
 GameObject:
   m_ObjectHideFlags: 0

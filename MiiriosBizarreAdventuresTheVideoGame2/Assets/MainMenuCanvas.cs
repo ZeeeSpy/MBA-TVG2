@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuCanvas : MonoBehaviour
 {
-	
-    public void PlayGame()
+
+	private void Awake()
+	{
+		Cursor.visible = true;
+	}
+
+	public void PlayGame()
 	{
 		SceneManager.LoadScene("Level1-MyrowHouse");
 	}
