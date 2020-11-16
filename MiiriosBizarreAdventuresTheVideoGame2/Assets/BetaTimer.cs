@@ -5,25 +5,24 @@ using UnityEngine.UI;
 
 public class BetaTimer : MonoBehaviour
 {
-	float seconds;
-	int minutes;
-	public Text Timer; 
+	public float seconds;
+	public int minutes;
+	public int hours;
+	public Text Timer;
 
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+
+	void Update()
     {
 		seconds += Time.deltaTime;
 
 		int tempseconds = (int)seconds;
-		if (tempseconds > 60)
-		{
-			minutes += 1;
-			tempseconds = 0;
-		}
-		if (minutes > 60){
-			minutes = 0;
-		}
-		Timer.text = minutes + ":" + tempseconds;
+		minutes = tempseconds / 60;
+		hours = minutes / 60;
+		tempseconds = tempseconds % 60;
+
+		string tout = string.Format("{0:D2}:{1:D2}:{2:D2}", hours, minutes, tempseconds);
+		Timer.text = tout;
 	}
 }

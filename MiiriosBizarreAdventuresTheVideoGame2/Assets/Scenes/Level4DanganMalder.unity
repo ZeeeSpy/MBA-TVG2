@@ -3284,7 +3284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: Twitch Chat
-  TA: {fileID: 0}
+  TA: {fileID: 4900000, guid: 5c454a420f28b3941bff4af3e1816321, type: 3}
 --- !u!114 &1723347196
 MonoBehaviour:
   m_ObjectHideFlags: 0

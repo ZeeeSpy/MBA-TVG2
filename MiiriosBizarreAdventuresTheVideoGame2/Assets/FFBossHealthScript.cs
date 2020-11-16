@@ -11,16 +11,20 @@ public class FFBossHealthScript : MonoBehaviour, Shootable
 	public AudioSource ASP;
 	public AudioClip Hitmarker;
 	public Image hitmarkerimg;
+	public GameObject FFLife;
 
 
 	void Shootable.GetShot()
 	{
 		StartCoroutine(GotShot());
-		HP--;
+		//HP--;
+		HP = HP - 5;
 		Slide.value = HP;
 		if (HP == 0)
 		{
-			Debug.Log("You Win");
+			Destroy(hitmarkerimg);
+			Destroy(FFLife);
+			transform.parent.GetComponent<NavAgentRandomWander>().DestroySelf();
 		}
 	}
 

@@ -25,7 +25,6 @@ public class NavAgentRandomWander : MonoBehaviour
 	private AudioSource AS;
 	public AudioClip AC;
 
-
 	void Start()
 	{
 		Player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -158,7 +157,7 @@ public class NavAgentRandomWander : MonoBehaviour
 			}
 			else
 			{
-				Debug.Log("Missed");
+				//FF Missed
 			}
 		}
 
@@ -170,5 +169,10 @@ public class NavAgentRandomWander : MonoBehaviour
 		hasstopped = false;
 	}
 
+	public void DestroySelf()
+	{
 
+		//load "you win" screen
+		Destroy(gameObject);
+	}
 }

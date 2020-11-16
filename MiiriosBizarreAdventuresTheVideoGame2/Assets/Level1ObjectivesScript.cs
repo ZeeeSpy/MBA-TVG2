@@ -21,6 +21,7 @@ public class Level1ObjectivesScript : MonoBehaviour
 
 	public Text objectives;
 	public Text oobjectives;
+	public BoxCollider Door;
 
 	private string[] objectivearr = new string[] {
 		"Check Voicemails",
@@ -33,16 +34,33 @@ public class Level1ObjectivesScript : MonoBehaviour
 	{
 		objectivearr[inc] = "";
 		string oout = "Objectives: \n";
+		int temp = 0;
 
 		foreach (string o in objectivearr)
 		{
 			if (o != "")
 			{
 				oout = oout + "\n• " + o;
+			} else
+			{
+				
+				temp++;
 			}
 
 		}
 
 		objectives.text = oout;
+
+
+		if (temp == 4)
+		{
+			EndLevelTrigger();
+		}
+	}
+
+	public void EndLevelTrigger()
+	{
+		objectives.text = "Leave the house";
+		Door.enabled = true;
 	}
 }
