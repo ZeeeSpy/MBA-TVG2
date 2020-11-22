@@ -12,8 +12,11 @@ public class GoodMorningMonoJerry : MonoBehaviour,DanganSpeech
 	private string[] Dialogue;
 	public TextAsset TA;
 
+	public AudioClip MRMK, BeautifulLife, Box15;
+	public AudioSource StageMusic;
 
-	private void Awake()
+
+	private void Start()
 	{
 		TVImg = GetComponent<Image>();
 		TVImg.enabled = true;
@@ -29,6 +32,9 @@ public class GoodMorningMonoJerry : MonoBehaviour,DanganSpeech
 
 	public void StopInteract()
 	{
+		TVImg.enabled = false;
 		player.GetComponent<FirstPersonController>().enabled = true;
+		StageMusic.clip = BeautifulLife;
+		StageMusic.Play();
 	}
 }
