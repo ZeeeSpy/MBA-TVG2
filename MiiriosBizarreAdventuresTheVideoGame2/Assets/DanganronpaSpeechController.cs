@@ -14,6 +14,9 @@ public class DanganronpaSpeechController : MonoBehaviour
 
 	private DanganCharacter incChar;
 	private InvestigationItem incItem;
+	private GoodMorningMonoJerry incGM;
+
+	DanganSpeech DGS;
 	private string[] dia;
 	private int diacount = 1;
 
@@ -31,21 +34,14 @@ public class DanganronpaSpeechController : MonoBehaviour
 		}
 	}
 
-	public void StartTalk(string incname, string[] incdia, DanganCharacter _incchar)
+	public void StartTalk(string incname, string[] incdia, DanganSpeech _DGS)
 	{
 		SpeechSetUp(incname, incdia);
-		incChar = _incchar;
+		DGS = _DGS;
 		StartedToTalk = true;
 		dia = incdia;
 	}
 
-	public void StartTalk(string incname, string[] incdia, InvestigationItem _incItem)
-	{
-		SpeechSetUp(incname, incdia);
-		incChar = null;
-		incItem = _incItem;
-		StartCoroutine(DelayASec());
-	}
 
 	private void SpeechSetUp(string incname, string[] incdia)
 	{
@@ -70,14 +66,7 @@ public class DanganronpaSpeechController : MonoBehaviour
 					TextDialogue.text = "";
 					diacount = 1;
 					HUD.SetActive(true);
-					if (incChar != null)
-					{
-						incChar.StopInteract();
-					}
-					else
-					{
-						incItem.StopInteract();
-					}
+					DGS.StopInteract();
 				}
 				else
 				{

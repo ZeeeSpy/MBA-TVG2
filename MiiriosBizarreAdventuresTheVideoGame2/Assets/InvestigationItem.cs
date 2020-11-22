@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvestigationItem : MonoBehaviour
+public class InvestigationItem : MonoBehaviour, DanganSpeech
 {
 	public string CharacterName;
 	private string[] Dialogue;

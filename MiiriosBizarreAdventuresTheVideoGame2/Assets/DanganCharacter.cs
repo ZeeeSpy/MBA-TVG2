@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class DanganCharacter : MonoBehaviour, Interactable
+public class DanganCharacter : MonoBehaviour, Interactable, DanganSpeech
 {
 	private Vector3 startposition;
 	private Transform playerlocation;
