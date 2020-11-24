@@ -14,6 +14,7 @@ public class GoodMorningMonoJerry : MonoBehaviour,DanganSpeech
 
 	public AudioClip MRMK, BeautifulLife, Box15;
 	public AudioSource StageMusic;
+	public bool QuickStart = true;
 
 
 	private void Start()
@@ -25,9 +26,14 @@ public class GoodMorningMonoJerry : MonoBehaviour,DanganSpeech
 		player = GameObject.FindGameObjectWithTag("Player");
 		Dialogue = TA.text.Split('\n');
 
-
-		player.GetComponent<FirstPersonController>().enabled = false;
-		DanganronpaSpeechController.instance.StartTalk(CharacterName, Dialogue, this);
+		if (!QuickStart)
+		{
+			player.GetComponent<FirstPersonController>().enabled = false;
+			DanganronpaSpeechController.instance.StartTalk(CharacterName, Dialogue, this);
+		} else
+		{
+			StopInteract();
+		}
 	}
 
 	public void StopInteract()
