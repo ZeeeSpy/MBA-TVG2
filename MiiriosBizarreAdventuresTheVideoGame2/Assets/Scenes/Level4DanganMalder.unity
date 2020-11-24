@@ -7600,7 +7600,7 @@ MonoBehaviour:
   BeautifulLife: {fileID: 8300000, guid: b7f337cc4b9ea02448414b79b187989c, type: 3}
   Box15: {fileID: 8300000, guid: c8f15af0790585846b55babf9d5d8af2, type: 3}
   StageMusic: {fileID: 1644437474}
-  QuickStart: 1
+  QuickStart: 0
 --- !u!1 &1794071449
 GameObject:
   m_ObjectHideFlags: 0
