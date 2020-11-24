@@ -6,10 +6,13 @@ public class DanganDoorSwitcher : MonoBehaviour, Interactable
 {
 	private GameObject Core;
 	public GameObject Inside;
+	private AudioSource AS;
 
     void Start()
     {
 		Core = GameObject.Find("Core");
+		AS = GetComponent<AudioSource>();
+		AS.clip = AudioClipMaster.instance.GetClip(0);
     }
 
 	public string InteractWithObject()
@@ -18,6 +21,7 @@ public class DanganDoorSwitcher : MonoBehaviour, Interactable
 		Inside.SetActive(true);
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
+		AS.Play();
 		return null;
 	}
 
@@ -27,7 +31,7 @@ public class DanganDoorSwitcher : MonoBehaviour, Interactable
 		Core.SetActive(true);
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		Debug.Log("selected");
+		AS.Play();
 	}
 
 	//add door sound
