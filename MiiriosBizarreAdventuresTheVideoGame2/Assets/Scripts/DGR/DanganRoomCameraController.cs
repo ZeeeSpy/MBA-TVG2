@@ -9,7 +9,9 @@ public class DanganRoomCameraController : MonoBehaviour
 	public Transform Reset;
 	private float moveInput;
 	private float TurnSpeed = 1.5f;
+	//private const int MaxRotation = 40;
 	private const int MaxRotation = 40;
+	private int adjustment = 0;
 	private const float zoomspeed = 20f;
 
 	private bool Zoom =false;
@@ -23,6 +25,16 @@ public class DanganRoomCameraController : MonoBehaviour
 
 	private float currentRotation;
 
+	public bool inverse = false;
+
+	public void Start()
+	{
+		if (inverse)
+		{
+			adjustment = 180;
+		}
+	}
+
 	public void FixedUpdate()
 	{
 		moveInput = Input.GetAxisRaw("Horizontal");
@@ -31,8 +43,7 @@ public class DanganRoomCameraController : MonoBehaviour
 		{
 			moveInput = moveInput * TurnSpeed;
 			currentRotation += moveInput;
-			currentRotation = Mathf.Clamp(currentRotation, -MaxRotation, MaxRotation);
-
+			currentRotation = Mathf.Clamp(currentRotation, -MaxRotation + adjustment, MaxRotation + adjustment);
 			Spinner.localEulerAngles = new Vector3(Spinner.localEulerAngles.x, currentRotation, Spinner.localEulerAngles.z);
 		}
 
