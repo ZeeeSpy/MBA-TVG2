@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class DanganDoorSwitcher : MonoBehaviour, Interactable
 {
@@ -28,11 +29,10 @@ public class DanganDoorSwitcher : MonoBehaviour, Interactable
 	public void ExitRoom()
 	{
 		Inside.SetActive(false);
+		//spin player
 		Core.SetActive(true);
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 		AS.Play();
 	}
-
-	//add door sound
 }

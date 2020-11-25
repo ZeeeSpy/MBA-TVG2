@@ -58,6 +58,7 @@ public class DanganronpaSpeechController : MonoBehaviour
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
+
 				if (diacount == dia.Length)
 				{
 					CharacterSpeech.enabled = false;

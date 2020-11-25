@@ -14,9 +14,9 @@ public class DanganRoomCameraController : MonoBehaviour
 	private int adjustment = 0;
 	private const float zoomspeed = 20f;
 
-	private bool Zoom =false;
-	private bool UnZoom = false;
-	private bool Zoomed = false;
+	public bool Zoom =false;
+	public bool UnZoom = false;
+	public bool Zoomed = false;
 
 	private Vector3 oldposition;
 	private Vector3 TargetPosition;
@@ -81,10 +81,10 @@ public class DanganRoomCameraController : MonoBehaviour
 			Vector3 newDirection = Vector3.RotateTowards(transform.forward, DirectionToRotate, step,0.0f);
 			transform.rotation = Quaternion.LookRotation(newDirection);
 
-			if (Vector3.Distance(transform.position, TargetPosition) == 0){
+			if (Vector3.Distance(transform.position, TargetPosition) < 0.01f){
 				Zoom = false;
 				TargetPosition = oldposition;
-			}
+			} 
 		}
 
 
@@ -95,7 +95,7 @@ public class DanganRoomCameraController : MonoBehaviour
 
 			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(oldrotation), Time.time * zoomspeed);
 
-			if (Vector3.Distance(transform.position, TargetPosition) == 0)
+			if (Vector3.Distance(transform.position, TargetPosition) < 0.01f)
 			{
 				UnZoom = false;
 				Zoomed = false;
