@@ -8,6 +8,8 @@ public class InvestigationItem : MonoBehaviour, DanganSpeech
 	private string[] Dialogue;
 	public TextAsset TA;
 	public DanganRoomCameraController Room;
+	public bool KeepingCount = false;
+	private bool interacted = false;
 
 	private void Start()
 	{
@@ -27,6 +29,11 @@ public class InvestigationItem : MonoBehaviour, DanganSpeech
 
 	public void StopInteract()
 	{
+		if (!interacted && KeepingCount)
+		{
+			interacted = true;
+			CharacterTrackerDGR.instance.Talked();
+		}
 		Room.Done();
 	}
 }

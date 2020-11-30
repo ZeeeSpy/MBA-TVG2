@@ -2497,6 +2497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Miirio' Brain
   TA: {fileID: 4900000, guid: 864bffd343de2a143ad78941bd438dd5, type: 3}
+  KeepingCount: 1
 --- !u!114 &663306055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2790,6 +2791,7 @@ MonoBehaviour:
   CharacterName: Miirio's Thoughts
   TA: {fileID: 4900000, guid: 5de088057bdd53c44b66f1ddea57cbef, type: 3}
   Room: {fileID: 283919901}
+  KeepingCount: 0
 --- !u!65 &737924896
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2913,6 +2915,7 @@ MonoBehaviour:
   CharacterName: CommunicationError
   TA: {fileID: 4900000, guid: f7c3398202496694396de5208237e130, type: 3}
   Room: {fileID: 1635193993}
+  KeepingCount: 0
 --- !u!1 &741779966
 GameObject:
   m_ObjectHideFlags: 0
@@ -4192,6 +4195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: F_F
   TA: {fileID: 4900000, guid: 4fc22cc7cf725374583797d5e214b32d, type: 3}
+  KeepingCount: 1
 --- !u!114 &903430886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4527,6 +4531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Ceo's Of XboxGang
   TA: {fileID: 4900000, guid: 4d8bcbd159cd8fb4da663d356f9afc54, type: 3}
+  KeepingCount: 1
 --- !u!114 &1064822091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7291,6 +7296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Twitch Chat
   TA: {fileID: 4900000, guid: 5c454a420f28b3941bff4af3e1816321, type: 3}
+  KeepingCount: 1
 --- !u!114 &1723347196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7519,6 +7525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Twitch
   TA: {fileID: 4900000, guid: 9c251cd24f002b048b0c1547cb9f0bdd, type: 3}
+  KeepingCount: 1
 --- !u!114 &1756855760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8294,6 +8301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Lee Chaolan
   TA: {fileID: 4900000, guid: 5789d9da019ee554e9cdb3918126ce9b, type: 3}
+  KeepingCount: 1
 --- !u!114 &1877056024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8363,7 +8371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877056022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.71000004, y: 1.35, z: 22.862}
+  m_LocalPosition: {x: 1.08, y: 1.32, z: 22.96}
   m_LocalScale: {x: 0.21, y: 0.21, z: 1}
   m_Children: []
   m_Father: {fileID: 1401535263}
@@ -8536,6 +8544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: BandaiNamco
   TA: {fileID: 4900000, guid: 886320d3fa7ccaf479fd956d632a0100, type: 3}
+  KeepingCount: 1
 --- !u!114 &1951156619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9753,6 +9762,7 @@ MonoBehaviour:
   CharacterName: Myrow's Thoughts
   TA: {fileID: 4900000, guid: e890e9c6c34e7804ab9e6cc0e0a1612f, type: 3}
   Room: {fileID: 283919901}
+  KeepingCount: 0
 --- !u!65 &2135210025
 BoxCollider:
   m_ObjectHideFlags: 0

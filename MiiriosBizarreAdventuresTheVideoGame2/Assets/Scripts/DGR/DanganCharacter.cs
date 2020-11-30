@@ -12,6 +12,7 @@ public class DanganCharacter : MonoBehaviour, Interactable, DanganSpeech
 	private string[] Dialogue;
 	public TextAsset TA;
 	private bool interacted = false;
+	public bool KeepingCount = false;
 
 	private void Start()
 	{
@@ -34,7 +35,8 @@ public class DanganCharacter : MonoBehaviour, Interactable, DanganSpeech
 	{
 		transform.position = startposition;
 		player.GetComponent<FirstPersonController>().enabled = true;
-		if (!interacted)
+
+		if (!interacted && KeepingCount)
 		{
 			interacted = true;
 			CharacterTrackerDGR.instance.Talked();
