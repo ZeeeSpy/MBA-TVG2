@@ -23,7 +23,7 @@ public class ClassTrialMasterScript : MonoBehaviour
 		Brain,
 		Bamco,
 		Twitch,
-		Xbox,
+		XBOXGANG,
 		Miirio
 	}
 
