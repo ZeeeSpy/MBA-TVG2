@@ -1566,6 +1566,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2d35a75776708469e45e1b9d19341d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetDirection: {x: 0, y: 0, z: 0, w: 0}
+  LookingAtDirection: 0
+  TalkOrderTA: {fileID: 4900000, guid: 1d0c9a2b32744fd4baabd191f086fb3b, type: 3}
+  DialogueTA:
+  - {fileID: 4900000, guid: d262b7eb6ddab09459b045b660f19b26, type: 3}
+  - {fileID: 4900000, guid: 8fe527a650423b248876ec89838016d6, type: 3}
+  - {fileID: 4900000, guid: b2b2a6725e75dd24c837e6af12346c44, type: 3}
+  - {fileID: 4900000, guid: 783cf7db9fa533245bc206b63089b510, type: 3}
+  Count: -1
 --- !u!1 &1904957887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,13 +1684,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1904957887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e62e015fc1813f34abb9451fa1da6447, type: 3}
+  m_Script: {fileID: 11500000, guid: 091a18f87010ec94ea69de6ee14087a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterSpeech: {fileID: 126592313}
   TextName: {fileID: 69238046}
   TextDialogue: {fileID: 1586919173}
-  HUD: {fileID: 0}
+  HUD: {fileID: 126592311}
+  CTMS: {fileID: 1894357991}
   StartedToTalk: 0
 --- !u!1 &1951156617
 GameObject:

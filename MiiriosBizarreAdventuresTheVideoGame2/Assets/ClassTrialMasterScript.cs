@@ -8,6 +8,13 @@ public class ClassTrialMasterScript : MonoBehaviour
 	public Quaternion TargetDirection;
 	public bool LookingAtDirection = false;
 
+	public TextAsset TalkOrderTA;
+	public TextAsset[] DialogueTA;
+	private string[][] DialogueStrings;
+	private string[] TalkOrder;
+
+	public int Count = -1;
+
 	private enum Characters
 	{
 		TwitchChat =0,
@@ -22,14 +29,18 @@ public class ClassTrialMasterScript : MonoBehaviour
 
 	private void Start()
 	{
+		TalkOrder = TalkOrderTA.text.Split('\n');
 
+		DialogueStrings = new string[DialogueTA.Length][];
+
+		for (int i = 0; i < DialogueTA.Length; i++)
+		{
+			DialogueStrings[i] = DialogueTA[i].text.Split('\n');
+		}
+
+		Next();
 	}
 
-	private void LookAtCharacter(Characters inc)
-	{
-		LookingAtDirection = false;
-		TargetDirection = Quaternion.Euler(0, CharacterRotationalValues[(int)inc], 0);
-	}
 
 	void FixedUpdate()
 	{
@@ -40,7 +51,25 @@ public class ClassTrialMasterScript : MonoBehaviour
 			if (transform.rotation == TargetDirection)
 			{
 				LookingAtDirection = true;
+				DanganSpeechControllerTrial.instance.Speech(TalkOrder[Count], DialogueStrings[Count]);
 			}
 		}
 	}
+
+	public void Next()
+	{
+		Count++;
+		if (Count != TalkOrder.Length)
+		{
+			Characters NextChar = (Characters)System.Enum.Parse(typeof(Characters), TalkOrder[Count]);
+			LookAtCharacter(NextChar);
+		}
+	}
+
+	private void LookAtCharacter(Characters inc)
+	{
+		LookingAtDirection = false;
+		TargetDirection = Quaternion.Euler(0, CharacterRotationalValues[(int)inc], 0);
+	}
+
 }
