@@ -9,13 +9,19 @@ public class ClassTrialMasterScript : MonoBehaviour
 	public bool LookingAtDirection = false;
 
 	public TextAsset TalkOrderTA;
-	public TextAsset[] DialogueTA;
+	public TextAsset[] DialogueTA1;
 	private string[][] DialogueStrings;
 	private string[] TalkOrder;
 
+	public AudioSource AS;
+	public AudioClip DiscussionMusic;
+	public AudioClip DebateMusic;
+
+	private bool IsDebate = false;
+
 	public int Count = -1;
 
-	private enum Characters
+	public enum Characters
 	{
 		TwitchChat =0,
 		F_F,
@@ -31,11 +37,11 @@ public class ClassTrialMasterScript : MonoBehaviour
 	{
 		TalkOrder = TalkOrderTA.text.Split('\n');
 
-		DialogueStrings = new string[DialogueTA.Length][];
+		DialogueStrings = new string[DialogueTA1.Length][];
 
-		for (int i = 0; i < DialogueTA.Length; i++)
+		for (int i = 0; i < DialogueTA1.Length; i++)
 		{
-			DialogueStrings[i] = DialogueTA[i].text.Split('\n');
+			DialogueStrings[i] = DialogueTA1[i].text.Split('\n');
 		}
 
 		Next();
@@ -63,10 +69,20 @@ public class ClassTrialMasterScript : MonoBehaviour
 		{
 			Characters NextChar = (Characters)System.Enum.Parse(typeof(Characters), TalkOrder[Count]);
 			LookAtCharacter(NextChar);
+		} else
+		{
+			//Debate Section
+			LookAtCharacter(Characters.Miirio);
+			AS.Stop();
+			AS.clip = DebateMusic;
+			AS.Play();
+
+
+
 		}
 	}
 
-	private void LookAtCharacter(Characters inc)
+	public void LookAtCharacter(Characters inc)
 	{
 		LookingAtDirection = false;
 		TargetDirection = Quaternion.Euler(0, CharacterRotationalValues[(int)inc], 0);
