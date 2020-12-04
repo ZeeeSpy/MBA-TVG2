@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClassDebateManager : MonoBehaviour
 {
 	public TruthBulletScript[] TruthBulletArray;
+	public GameObject ClassDebateObj;
 	private int CurrentlyActiveBullet;
 
 	public void SetBulletAsActive(int inc)
@@ -18,4 +19,16 @@ public class ClassDebateManager : MonoBehaviour
 			}
 		}
 	}
+
+	public void StartClassDebate()
+	{
+		ClassDebateObj.SetActive(true);
+
+		for (int i = 0; i < TruthBulletArray.Length; i++)
+		{
+			TruthBulletArray[i].SetText("StringToSend");
+		}
+	}
+
+
 }

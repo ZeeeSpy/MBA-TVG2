@@ -7,6 +7,7 @@ public class ClassTrialMasterScript : MonoBehaviour
 	private float[] CharacterRotationalValues = new float[] {0,45,90,135,180,225,270,315};
 	public Quaternion TargetDirection;
 	public bool LookingAtDirection = false;
+	public ClassDebateManager CDM;
 
 	public TextAsset TalkOrderTA;
 	public TextAsset[] DialogueTA1;
@@ -57,7 +58,15 @@ public class ClassTrialMasterScript : MonoBehaviour
 			if (transform.rotation == TargetDirection)
 			{
 				LookingAtDirection = true;
-				DanganSpeechControllerTrial.instance.Speech(TalkOrder[Count], DialogueStrings[Count]);
+
+				if (IsDebate)
+				{
+					//Class Debate Lookaround
+				}
+				else
+				{
+					DanganSpeechControllerTrial.instance.Speech(TalkOrder[Count], DialogueStrings[Count]);
+				}
 			}
 		}
 	}
@@ -76,9 +85,8 @@ public class ClassTrialMasterScript : MonoBehaviour
 			AS.Stop();
 			AS.clip = DebateMusic;
 			AS.Play();
-
-
-
+			IsDebate = true;
+			CDM.StartClassDebate();
 		}
 	}
 
