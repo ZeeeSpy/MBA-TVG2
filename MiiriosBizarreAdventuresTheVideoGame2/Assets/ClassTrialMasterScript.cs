@@ -45,6 +45,7 @@ public class ClassTrialMasterScript : MonoBehaviour
 			DialogueStrings[i] = DialogueTA1[i].text.Split('\n');
 		}
 
+		Count = TalkOrder.Length - 1;
 		Next();
 	}
 
