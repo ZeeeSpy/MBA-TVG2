@@ -130,13 +130,7 @@ public class ClassTrialMasterScript : MonoBehaviour
 		switch (DialogueCounter){
 			case 0:
 				TalkOrder = TalkOrderTA1.text.Split('\n');
-
-				DialogueStrings = new string[DialogueTA1.Length][];
-
-				for (int i = 0; i < DialogueTA1.Length; i++)
-				{
-					DialogueStrings[i] = DialogueTA1[i].text.Split('\n');
-				}
+				DialogueLoader(DialogueTA1);
 				break;
 			case 1:
 				TalkOrder = TalkOrderTA2.text.Split('\n');
@@ -160,8 +154,19 @@ public class ClassTrialMasterScript : MonoBehaviour
 		}
 
 		DialogueCounter++;
-		Count = 0;
+		Count = -1;
 		Next();
+	}
+
+	private void DialogueLoader(TextAsset[] TA)
+	{
+		DialogueStrings = new string[TA.Length][];
+		Debug.Log(DialogueStrings.Length);
+		Debug.Log(TA.Length);
+		for (int i = 0; i < TA.Length; i++)
+		{
+			DialogueStrings[i] = TA[i].text.Split('\n');
+		}
 	}
 }
 
