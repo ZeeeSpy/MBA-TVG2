@@ -11,6 +11,8 @@ public class PayRespectsScript : MonoBehaviour
 
 	private Text PRText;
 
+	public GameObject Sniper, SniperHud, Core;
+
 	void Start()
 	{
 		if (instance != this && instance != null)
@@ -35,5 +37,15 @@ public class PayRespectsScript : MonoBehaviour
 	{
 		count++;
 		PRText.text = $"Pay Respects: {count}/10";
+
+		if (count == 10)
+		{
+			Sniper.SetActive(true);
+			SniperHud.SetActive(true);
+			Core.SetActive(false);
+
+
+			//Play sniper sound load gulag
+		}
 	}
 }
