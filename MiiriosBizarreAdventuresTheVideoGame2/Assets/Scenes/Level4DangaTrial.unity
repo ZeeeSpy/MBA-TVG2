@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e63f42fc096c224fa8f6541eb28de9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctBullet: 1
+  correctBullet: 0
   Statements:
   - {fileID: 694481470}
   - {fileID: 1077732531}
@@ -1489,7 +1489,7 @@ GameObject:
   - component: {fileID: 918411009}
   - component: {fileID: 918411008}
   m_Layer: 5
-  m_Name: Cylinder
+  m_Name: GunCylindar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

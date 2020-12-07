@@ -54,7 +54,10 @@ public class DanganSpeechControllerTrial : MonoBehaviour
 					TextDialogue.text = "";
 					diacount = 1;
 					HUD.SetActive(true);
-					CTMS.Next();
+					if (!CTMS.IsDebate)
+					{
+						CTMS.Next();
+					}
 				}
 				else
 				{

@@ -17,6 +17,7 @@ public class DanganDebate0 : MonoBehaviour
 	private float Waittime = 5;
 	private Coroutine CurrentCoroutine;
 	public Camera thisCam;
+	private bool Restarting = false;
 
 	private void Start()
 	{
@@ -56,6 +57,24 @@ public class DanganDebate0 : MonoBehaviour
 				}
 			}
 		}
+
+		if (Restarting)
+		{
+			if (!DanganSpeechControllerTrial.instance.StartedToTalk)
+			{
+				Count = 0;
+				CDM.SetDebateLength(3);
+				CurrentCoroutine = StartCoroutine(StartDebate());
+				for (int i = 0; i < this.transform.childCount; i++)
+				{
+					var child = this.transform.GetChild(i).gameObject;
+					if (child != null)
+						child.SetActive(true);
+				}
+				Restarting = false;
+			}
+		}
+
 	}
 
 	IEnumerator StartDebate()
@@ -111,14 +130,24 @@ public class DanganDebate0 : MonoBehaviour
 	{
 		StopCoroutine(CurrentCoroutine);
 		Debug.Log("Incorrect");
-		//show miirio + generic wrong statement;
+
 		foreach (GameObject A in Statements)
 		{
 			A.SetActive(false);
 		}
-		Count = 0;
-		CDM.SetDebateLength(3);
-		CurrentCoroutine = StartCoroutine(StartDebate());
+
+		CTMS.LookAtCharacter(Characters.Miirio);
+
+		for (int i = 0; i < this.transform.childCount; i++)
+		{
+			var child = this.transform.GetChild(i).gameObject;
+			if (child != null)
+				child.SetActive(false);
+		}
+
+		string[] temp = new string[]{ "That's not the inconsistency, let's try again" };
+		DanganSpeechControllerTrial.instance.Speech("Miirio", temp);
+		Restarting = true;
 	}
 
 	private void Correct()

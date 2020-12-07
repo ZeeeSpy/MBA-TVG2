@@ -48,7 +48,7 @@ public class ClassDebateManager : MonoBehaviour
 		DanganDebateScripts[DebateCount].enabled = true;
 		string[] temp = DanganDebateScripts[DebateCount].ReturnBulletNames();
 
-		ClassDebateObj.SetActive(true);
+		ToggleClassDebateObject();
 
 		for (int i = 0; i < TruthBulletArray.Length; i++)
 		{
@@ -102,7 +102,14 @@ public class ClassDebateManager : MonoBehaviour
 
 	public void EndDebate()
 	{
+		ToggleClassDebateObject();
 		CTMS.IsDebate = false;
 		CTMS.LoadNextDialogueSequence();
+	}
+
+
+	public void ToggleClassDebateObject()
+	{
+		ClassDebateObj.SetActive(!ClassDebateObj.activeInHierarchy);
 	}
 }

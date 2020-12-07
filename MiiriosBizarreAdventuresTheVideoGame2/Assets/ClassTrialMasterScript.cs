@@ -72,6 +72,7 @@ public class ClassTrialMasterScript : MonoBehaviour
 
 		//Skip to first debate
 		//Count = TalkOrder.Length - 1;
+
 		Next();
 	}
 
