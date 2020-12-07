@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Danganmalder;
 
 public class ClassTrialMasterScript : MonoBehaviour
 {
+	public static ClassTrialMasterScript instance;
 	private float[] CharacterRotationalValues = new float[] {0,45,90,135,180,225,270,315};
 	public Quaternion TargetDirection;
 	public bool LookingAtDirection = false;
+
 	public ClassDebateManager CDM;
+	
 
 	public TextAsset TalkOrderTA;
 	public TextAsset[] DialogueTA1;
@@ -18,20 +22,20 @@ public class ClassTrialMasterScript : MonoBehaviour
 	public AudioClip DiscussionMusic;
 	public AudioClip DebateMusic;
 
-	private bool IsDebate = false;
+	public bool IsDebate = false;
 
 	public int Count = -1;
 
-	public enum Characters
+	private void Awake()
 	{
-		TwitchChat =0,
-		F_F,
-		Lee,
-		Brain,
-		Bamco,
-		Twitch,
-		XBOXGANG,
-		Miirio
+		if (instance != null && instance != this)
+		{
+			Destroy(this.gameObject);
+		}
+		else
+		{
+			instance = this;
+		}
 	}
 
 	private void Start()
@@ -45,7 +49,8 @@ public class ClassTrialMasterScript : MonoBehaviour
 			DialogueStrings[i] = DialogueTA1[i].text.Split('\n');
 		}
 
-		Count = TalkOrder.Length - 1;
+
+		//Count = TalkOrder.Length - 1;
 		Next();
 	}
 
@@ -60,11 +65,7 @@ public class ClassTrialMasterScript : MonoBehaviour
 			{
 				LookingAtDirection = true;
 
-				if (IsDebate)
-				{
-					//Class Debate Lookaround
-				}
-				else
+				if (!IsDebate)
 				{
 					DanganSpeechControllerTrial.instance.Speech(TalkOrder[Count], DialogueStrings[Count]);
 				}
@@ -97,4 +98,19 @@ public class ClassTrialMasterScript : MonoBehaviour
 		TargetDirection = Quaternion.Euler(0, CharacterRotationalValues[(int)inc], 0);
 	}
 
+}
+
+namespace Danganmalder
+{
+	public enum Characters
+	{
+		TwitchChat = 0,
+		F_F,
+		Lee,
+		Brain,
+		Bamco,
+		Twitch,
+		XBOXGANG,
+		Miirio
+	}
 }

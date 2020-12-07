@@ -9,11 +9,12 @@ public class TruthBulletScript : MonoBehaviour
 	public int BulletNumb = 0;
 	public bool Active = false;
 	private RectTransform RT;
-	public ClassDebateManager CBM;
+	private ClassDebateManager CBM;
 
 	public void Start()
 	{
-		RT = GetComponent<RectTransform>();	
+		RT = GetComponent<RectTransform>();
+		CBM = ClassDebateManager.instance;
 	}
 
 	public void SetText(string inc)
