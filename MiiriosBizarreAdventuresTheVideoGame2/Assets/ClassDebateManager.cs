@@ -54,6 +54,8 @@ public class ClassDebateManager : MonoBehaviour
 		{
 			TruthBulletArray[i].SetText(temp[i]);
 		}
+
+		SetBulletAsActive(0);
 	}
 
 	public int GetCurrentlyActiveBullet()
