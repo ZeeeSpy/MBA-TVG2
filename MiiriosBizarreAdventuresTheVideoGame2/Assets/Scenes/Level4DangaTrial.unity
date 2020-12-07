@@ -2048,7 +2048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1225297062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3578,6 +3578,19 @@ MonoBehaviour:
   LookingAtDirection: 0
   CDM: {fileID: 46149831}
   TalkOrderTA: {fileID: 4900000, guid: 1d0c9a2b32744fd4baabd191f086fb3b, type: 3}
+  DialogueTA:
+  - {fileID: 4900000, guid: d262b7eb6ddab09459b045b660f19b26, type: 3}
+  - {fileID: 4900000, guid: 8fe527a650423b248876ec89838016d6, type: 3}
+  - {fileID: 4900000, guid: b2b2a6725e75dd24c837e6af12346c44, type: 3}
+  - {fileID: 4900000, guid: 783cf7db9fa533245bc206b63089b510, type: 3}
+  - {fileID: 4900000, guid: 245637a20b1489f4ca3cddb6a55b78ff, type: 3}
+  - {fileID: 4900000, guid: dcb707bd0bbaf454fa8807872b274468, type: 3}
+  - {fileID: 4900000, guid: 90b9b91ec61ef3b45b8c01d706de0469, type: 3}
+  - {fileID: 4900000, guid: 5480b5b05ec59c845998732bf365d50c, type: 3}
+  - {fileID: 4900000, guid: 4522a6ae98539e440b2c8185b2804b54, type: 3}
+  - {fileID: 4900000, guid: aa12636723697f240a66d15c56ed05b0, type: 3}
+  - {fileID: 4900000, guid: 0c4943dadb45d8d4697063b24ba70aad, type: 3}
+  TalkOrderTA1: {fileID: 0}
   DialogueTA1:
   - {fileID: 4900000, guid: d262b7eb6ddab09459b045b660f19b26, type: 3}
   - {fileID: 4900000, guid: 8fe527a650423b248876ec89838016d6, type: 3}
@@ -3590,6 +3603,8 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 4522a6ae98539e440b2c8185b2804b54, type: 3}
   - {fileID: 4900000, guid: aa12636723697f240a66d15c56ed05b0, type: 3}
   - {fileID: 4900000, guid: 0c4943dadb45d8d4697063b24ba70aad, type: 3}
+  TalkOrderTA2: {fileID: 0}
+  DialogueTA2: []
   AS: {fileID: 551089538}
   DiscussionMusic: {fileID: 8300000, guid: a0049df6bc716f54099c012f586897e0, type: 3}
   DebateMusic: {fileID: 8300000, guid: b45ddeb58a9ba6245ae6bf37c779ec3c, type: 3}

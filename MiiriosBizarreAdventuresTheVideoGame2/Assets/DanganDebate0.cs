@@ -43,11 +43,13 @@ public class DanganDebate0 : MonoBehaviour
 						if (correctBullet == CDM.GetCurrentlyActiveBullet())
 						{
 							Correct();
-						} else
+						}
+						else
 						{
 							Restart();
 						}
-					} else
+					}
+					else
 					{
 						Restart();
 					}
@@ -99,7 +101,7 @@ public class DanganDebate0 : MonoBehaviour
 				yield return new WaitForSeconds(0.1f);
 			}
 			Statements[Count].SetActive(true);
-			yield return new WaitForSeconds(Waittime*2);
+			yield return new WaitForSeconds(Waittime * 2);
 			Statements[Count].SetActive(false);
 			Count = 0;
 		}
@@ -126,13 +128,12 @@ public class DanganDebate0 : MonoBehaviour
 			A.SetActive(false);
 		}
 		//NO THATS WRONG
-		//Correct cutscene
-		//End Debate
+
 		CDM.EndDebate();
 	}
 
-
-	public string[] ReturnBulletNames() {
+	public string[] ReturnBulletNames()
+	{
 		return BulletNames;
 	}
 }

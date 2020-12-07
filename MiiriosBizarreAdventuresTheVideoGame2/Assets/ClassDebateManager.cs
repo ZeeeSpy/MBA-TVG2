@@ -61,11 +61,6 @@ public class ClassDebateManager : MonoBehaviour
 		return CurrentlyActiveBullet;
 	}
 
-	public void SetProgress(int inc)
-	{
-
-	}
-
 	public void Progress()
 	{
 		ProgressArrMaster[count].color = new Color32(255, 255, 255, 255);
@@ -108,6 +103,6 @@ public class ClassDebateManager : MonoBehaviour
 	public void EndDebate()
 	{
 		CTMS.IsDebate = false;
-
+		CTMS.LoadNextDialogueSequence();
 	}
 }
