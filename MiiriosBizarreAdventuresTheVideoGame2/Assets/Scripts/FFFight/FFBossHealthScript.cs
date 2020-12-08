@@ -17,8 +17,7 @@ public class FFBossHealthScript : MonoBehaviour, Shootable
 	void Shootable.GetShot()
 	{
 		StartCoroutine(GotShot());
-		//HP--;
-		HP = HP - 5;
+		HP--;
 		Slide.value = HP;
 		if (HP == 0)
 		{
