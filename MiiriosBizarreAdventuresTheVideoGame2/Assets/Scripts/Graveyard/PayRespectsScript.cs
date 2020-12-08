@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +9,11 @@ public class PayRespectsScript : MonoBehaviour
 	private bool firstsetup = true;
 	private int count = 0;
 
-	private Text PRText;
+	public Text PRText;
 
-	public GameObject Sniper, SniperHud, Core;
+	public GameObject Sniper, SniperHud, Core, Video;
+	public AudioSource AS;
+	public AudioClip Intervention;
 
 	void Start()
 	{
@@ -27,8 +29,6 @@ public class PayRespectsScript : MonoBehaviour
 		if (firstsetup)
 		{
 			firstsetup = false;
-
-			PRText = GetComponent<Text>();
 		}
 	}
 
@@ -43,9 +43,18 @@ public class PayRespectsScript : MonoBehaviour
 			Sniper.SetActive(true);
 			SniperHud.SetActive(true);
 			Core.SetActive(false);
-
-
-			//Play sniper sound load gulag
+			AS.Stop();
+			AS.PlayOneShot(Intervention);
+			StartCoroutine(SniperCo());
 		}
+	}
+
+	IEnumerator SniperCo()
+	{
+		yield return new WaitForSeconds(1f);
+		SniperHud.SetActive(false);
+		Video.SetActive(true);
+		yield return new WaitForSeconds(14.8f);
+		SceneManager.LoadScene("Level2Boss");
 	}
 }
