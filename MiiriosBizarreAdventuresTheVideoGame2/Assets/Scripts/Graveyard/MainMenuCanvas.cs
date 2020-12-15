@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuCanvas : MonoBehaviour
 {
+	public GameObject MainButtons;
+	public GameObject LevelButtons;
 
 	private void Awake()
 	{
@@ -16,9 +18,10 @@ public class MainMenuCanvas : MonoBehaviour
 		SceneManager.LoadScene("Level1-MyrowHouse");
 	}
 
-	public void LevelSelect()
+	public void LevelSelectToggle()
 	{
-
+		MainButtons.SetActive(!MainButtons.activeInHierarchy);
+		LevelButtons.SetActive(!LevelButtons.activeInHierarchy);
 	}
 
 	public void Quit()

@@ -9733,6 +9733,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 14901731908254669, guid: cbc2200382e0fad44ad524139fb80779,
+        type: 3}
+      propertyPath: m_EffectColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 232067463987441213, guid: cbc2200382e0fad44ad524139fb80779,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -9827,6 +9832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2347968761313345403, guid: cbc2200382e0fad44ad524139fb80779,
+        type: 3}
+      propertyPath: m_Text
+      value: F
       objectReference: {fileID: 0}
     - target: {fileID: 3959790782613635607, guid: cbc2200382e0fad44ad524139fb80779,
         type: 3}

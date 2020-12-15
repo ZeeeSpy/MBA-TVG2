@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NavAgentRandomWander : MonoBehaviour
 {
@@ -172,7 +173,7 @@ public class NavAgentRandomWander : MonoBehaviour
 	public void DestroySelf()
 	{
 
-		//load "you win" screen
+		SceneManager.LoadScene("Level3-MaldKing");
 		Destroy(gameObject);
 	}
 }

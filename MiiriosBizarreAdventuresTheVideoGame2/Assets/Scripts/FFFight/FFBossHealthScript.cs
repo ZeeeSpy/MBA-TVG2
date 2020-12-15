@@ -19,7 +19,7 @@ public class FFBossHealthScript : MonoBehaviour, Shootable
 		StartCoroutine(GotShot());
 		HP--;
 		Slide.value = HP;
-		if (HP == 0)
+		if (HP <= 0)
 		{
 			Destroy(hitmarkerimg);
 			Destroy(FFLife);

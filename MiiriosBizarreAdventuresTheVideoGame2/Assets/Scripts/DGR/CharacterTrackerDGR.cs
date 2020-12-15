@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterTrackerDGR : MonoBehaviour
 {
@@ -33,8 +34,7 @@ public class CharacterTrackerDGR : MonoBehaviour
 		TrackerText.text = todisplay;
 		if (count == studentno)
 		{
-			Debug.Log("Load Murder");
-			//TODO load murder announcement.
+			SceneManager.LoadScene("Level4DangaTrial");
 		}
 	}
 }
