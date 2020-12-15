@@ -39,7 +39,7 @@ public class DanganRoomCameraController : MonoBehaviour
 	{
 		moveInput = Input.GetAxisRaw("Horizontal");
 
-		if (moveInput != 0)
+		if (moveInput != 0 && !Zoom && !Zoomed)
 		{
 			moveInput = moveInput * TurnSpeed;
 			currentRotation += moveInput;
