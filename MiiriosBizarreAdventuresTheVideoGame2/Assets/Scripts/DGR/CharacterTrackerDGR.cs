@@ -24,7 +24,7 @@ public class CharacterTrackerDGR : MonoBehaviour
 
 
 	private int count = -1;
-	private const int studentno = 5;
+	private const int studentno = 6;
 	private const string otext = "Students Talked To:{0}/{1}";
 
 	public void Talked()
@@ -34,7 +34,7 @@ public class CharacterTrackerDGR : MonoBehaviour
 		TrackerText.text = todisplay;
 		if (count == studentno)
 		{
-			SceneManager.LoadScene("Level4DangaTrial");
+			SceneManager.LoadScene("Level4DanganTrial");
 		}
 	}
 }
