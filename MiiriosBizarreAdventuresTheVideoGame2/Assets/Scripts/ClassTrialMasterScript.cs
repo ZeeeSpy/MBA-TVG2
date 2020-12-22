@@ -42,6 +42,7 @@ public class ClassTrialMasterScript : MonoBehaviour
 	public AudioSource AS;
 	public AudioClip DiscussionMusic;
 	public AudioClip DebateMusic;
+	public AudioClip Guilty;
 
 	public bool IsDebate = false;
 
@@ -71,6 +72,7 @@ public class ClassTrialMasterScript : MonoBehaviour
 		}
 
 		//Skip to first debate
+		Debug.Log("Skip to first debate");
 		//Count = TalkOrder.Length - 1;
 
 		Next();
@@ -136,19 +138,13 @@ public class ClassTrialMasterScript : MonoBehaviour
 				TalkOrder = TalkOrderTA2.text.Split('\n');
 
 				DialogueStrings = new string[DialogueTA2.Length][];
-
+				AS.Stop();
+				AS.clip = Guilty;
+				AS.Play();
 				for (int i = 0; i < DialogueTA2.Length; i++)
 				{
 					DialogueStrings[i] = DialogueTA2[i].text.Split('\n');
 				}
-				break;
-
-			case 2:
-
-				break;
-
-
-			case 3:
 
 				break;
 		}
@@ -161,8 +157,6 @@ public class ClassTrialMasterScript : MonoBehaviour
 	private void DialogueLoader(TextAsset[] TA)
 	{
 		DialogueStrings = new string[TA.Length][];
-		Debug.Log(DialogueStrings.Length);
-		Debug.Log(TA.Length);
 		for (int i = 0; i < TA.Length; i++)
 		{
 			DialogueStrings[i] = TA[i].text.Split('\n');

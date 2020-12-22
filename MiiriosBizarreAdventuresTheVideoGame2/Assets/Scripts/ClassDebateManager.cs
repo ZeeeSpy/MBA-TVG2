@@ -43,6 +43,12 @@ public class ClassDebateManager : MonoBehaviour
 
 	public void StartClassDebate()
 	{
+		if (DebateCount == 2)
+		{
+			//TODO
+			Debug.Log("Load Next Scene");
+		}
+
 		CTMS = ClassTrialMasterScript.instance;
 		CTMS.IsDebate = true;
 		DanganDebateScripts[DebateCount].enabled = true;
@@ -104,6 +110,8 @@ public class ClassDebateManager : MonoBehaviour
 
 	public void EndDebate()
 	{
+		DanganDebateScripts[DebateCount].enabled = false;
+		DebateCount++;
 		ToggleClassDebateObject();
 		CTMS.IsDebate = false;
 		CTMS.LoadNextDialogueSequence();

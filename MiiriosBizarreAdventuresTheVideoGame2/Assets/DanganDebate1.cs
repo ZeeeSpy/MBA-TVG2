@@ -2,28 +2,13 @@
 using UnityEngine;
 using Danganmalder;
 
-public class DanganDebate0 : MonoBehaviour
+public class DanganDebate1 : DanganDebate0
 {
-	public int correctBullet;
-
-	public GameObject[] Statements;
-	public string[] BulletNames = new string[]
-	{
-		"Highland Springs bottle","Miibio Stick","Salt Water"
-	};
-	protected ClassDebateManager CDM;
-	protected ClassTrialMasterScript CTMS;
-	protected int Count = 0;
-	protected float Waittime = 5;
-	protected Coroutine CurrentCoroutine;
-	public Camera thisCam;
-	protected bool Restarting = false;
-
-	private void Start()
+	void Start()
 	{
 		CDM = ClassDebateManager.instance;
 		CTMS = ClassTrialMasterScript.instance;
-		CDM.SetDebateLength(3);
+		CDM.SetDebateLength(7);
 		CurrentCoroutine = StartCoroutine(StartDebate());
 	}
 
@@ -40,15 +25,8 @@ public class DanganDebate0 : MonoBehaviour
 					//If correct statement
 					if (hit.transform.GetComponent<Statement>().IsStatementTrue())
 					{
-						//If correct bullet selected
-						if (correctBullet == CDM.GetCurrentlyActiveBullet())
-						{
-							Correct();
-						}
-						else
-						{
-							Restart();
-						}
+						//All bullets are correct in DanganDebate1
+						Correct();
 					}
 					else
 					{
@@ -63,7 +41,7 @@ public class DanganDebate0 : MonoBehaviour
 			if (!DanganSpeechControllerTrial.instance.StartedToTalk)
 			{
 				Count = 0;
-				CDM.SetDebateLength(3);
+				CDM.SetDebateLength(7);
 				CurrentCoroutine = StartCoroutine(StartDebate());
 				for (int i = 0; i < this.transform.childCount; i++)
 				{
@@ -76,11 +54,75 @@ public class DanganDebate0 : MonoBehaviour
 		}
 
 	}
-
 	IEnumerator StartDebate()
 	{
 		while (true)
 		{
+			CTMS.LookAtCharacter(Characters.TwitchChat);
+			while (!CTMS.LookingAtDirection)
+			{
+				yield return new WaitForSeconds(0.1f);
+			}
+
+			Statements[Count].SetActive(true);
+			yield return new WaitForSeconds(Waittime);
+			Statements[Count].SetActive(false);
+
+			Count++;
+			CDM.Progress();
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			CTMS.LookAtCharacter(Characters.F_F);
+			while (!CTMS.LookingAtDirection)
+			{
+				yield return new WaitForSeconds(0.1f);
+			}
+
+			Statements[Count].SetActive(true);
+			yield return new WaitForSeconds(Waittime);
+			Statements[Count].SetActive(false);
+
+			Count++;
+			CDM.Progress();
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			CTMS.LookAtCharacter(Characters.Lee);
+			while (!CTMS.LookingAtDirection)
+			{
+				yield return new WaitForSeconds(0.1f);
+			}
+
+			Statements[Count].SetActive(true);
+			yield return new WaitForSeconds(Waittime);
+			Statements[Count].SetActive(false);
+
+			Count++;
+			CDM.Progress();
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			CTMS.LookAtCharacter(Characters.Bamco);
+			while (!CTMS.LookingAtDirection)
+			{
+				yield return new WaitForSeconds(0.1f);
+			}
+
+			Statements[Count].SetActive(true);
+			yield return new WaitForSeconds(Waittime);
+			Statements[Count].SetActive(false);
+
+			Count++;
+			CDM.Progress();
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			CTMS.LookAtCharacter(Characters.Twitch);
+			while (!CTMS.LookingAtDirection)
+			{
+				yield return new WaitForSeconds(0.1f);
+			}
+
+			Statements[Count].SetActive(true);
+			yield return new WaitForSeconds(Waittime);
+			Statements[Count].SetActive(false);
+
+			Count++;
+			CDM.Progress();
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			CTMS.LookAtCharacter(Characters.XBOXGANG);
 			while (!CTMS.LookingAtDirection)
 			{
@@ -93,26 +135,20 @@ public class DanganDebate0 : MonoBehaviour
 
 			Count++;
 			CDM.Progress();
-
-			Statements[Count].SetActive(true);
-			yield return new WaitForSeconds(Waittime);
-			Statements[Count].SetActive(false);
-
-			CTMS.LookAtCharacter(Characters.TwitchChat);
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			CTMS.LookAtCharacter(Characters.Miirio);
 			while (!CTMS.LookingAtDirection)
 			{
 				yield return new WaitForSeconds(0.1f);
 			}
 
-			Count++;
-			CDM.Progress();
-
 			Statements[Count].SetActive(true);
 			yield return new WaitForSeconds(Waittime);
 			Statements[Count].SetActive(false);
 
 			Count++;
 			CDM.Progress();
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 			CTMS.LookAtCharacter(Characters.Miirio);
 			while (!CTMS.LookingAtDirection)
@@ -145,7 +181,7 @@ public class DanganDebate0 : MonoBehaviour
 				child.SetActive(false);
 		}
 
-		string[] temp = new string[]{ "That's not the inconsistency, let's try again" };
+		string[] temp = new string[] { "That's not the inconsistency, let's try again" };
 		DanganSpeechControllerTrial.instance.Speech("Miirio", temp);
 		Restarting = true;
 	}
@@ -159,10 +195,5 @@ public class DanganDebate0 : MonoBehaviour
 		//NO THATS WRONG
 
 		CDM.EndDebate();
-	}
-
-	public string[] ReturnBulletNames()
-	{
-		return BulletNames;
 	}
 }
