@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class EzModuClickScript : MonoBehaviour
 {
-    public Camera thisCam;
+	public bool Time = false;
+	public Camera thisCam;
 	string pass = "";
 	string correctpass = "cbcdabba";
-	//Blue Green Blue Yellow Red Green Green Red
+	bool enabled = false;
+	public GameObject ToDisable;
+	public GameObject ToEnable;
+
+	public GameObject EverythingElse;
+	//Black Blue Green Blue Yellow Red Green Green Red
 
     void Update()
     {
@@ -17,7 +23,7 @@ public class EzModuClickScript : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit))
 			{
-				if (hit.transform.GetComponent<EZModu>() != null)
+				if (hit.transform.GetComponent<EZModu>() != null && Time)
 				{
 					int value = hit.transform.GetComponent<EZModu>().GetValue();
 
@@ -25,7 +31,7 @@ public class EzModuClickScript : MonoBehaviour
 					{
 						case -2:
 							Application.OpenURL("https://www.twitch.tv/subs/ZeeeSpy");
-							//Todo show buttons and say it'll take a second to load
+							EverythingElse.SetActive(true);
 							break;
 						case -1:
 							pass = "";
@@ -47,8 +53,14 @@ public class EzModuClickScript : MonoBehaviour
 					Debug.Log(pass);
 					if (pass == correctpass)
 					{
-						//toggle platforms to easy mode
-						//Play video
+						if (!enabled)
+						{
+							enabled = true;
+							//Show video.
+							ToDisable.SetActive(false);
+							ToEnable.SetActive(true);
+							EverythingElse.SetActive(false);
+						}
 					}
 				}				
 			}
