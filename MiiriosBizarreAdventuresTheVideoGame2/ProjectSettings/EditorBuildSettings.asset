@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level4DanganTrial.unity
     guid: 10e4b1d10044ac949ba7c162e3d66cd7
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: f670d04e2f2d21040a70646c2f33434c
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 2ddc6bcd23c78a24aa3c8fd70159d79e
   m_configObjects: {}

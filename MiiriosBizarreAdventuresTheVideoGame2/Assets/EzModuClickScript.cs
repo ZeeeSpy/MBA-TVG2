@@ -8,7 +8,7 @@ public class EzModuClickScript : MonoBehaviour
 	public Camera thisCam;
 	string pass = "";
 	string correctpass = "cbcdabba";
-	bool enabled = false;
+	bool activated = false;
 	public GameObject ToDisable;
 	public GameObject ToEnable;
 
@@ -53,9 +53,9 @@ public class EzModuClickScript : MonoBehaviour
 					Debug.Log(pass);
 					if (pass == correctpass)
 					{
-						if (!enabled)
+						if (!activated)
 						{
-							enabled = true;
+							activated = true;
 							//Show video.
 							ToDisable.SetActive(false);
 							ToEnable.SetActive(true);

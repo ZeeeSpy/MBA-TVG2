@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ClassDebateManager : MonoBehaviour
 {
@@ -45,8 +46,7 @@ public class ClassDebateManager : MonoBehaviour
 	{
 		if (DebateCount == 2)
 		{
-			//TODO
-			Debug.Log("Load Next Scene");
+			SceneManager.LoadScene("Level5");
 		}
 
 		CTMS = ClassTrialMasterScript.instance;
