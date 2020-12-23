@@ -34,7 +34,7 @@ public class CharacterTrackerDGR : MonoBehaviour
 		TrackerText.text = todisplay;
 		if (count == studentno)
 		{
-			Debug.Log("load sleep section");
+			SceneManager.LoadScene("Level4DanganTrial");
 		}
 	}
 }

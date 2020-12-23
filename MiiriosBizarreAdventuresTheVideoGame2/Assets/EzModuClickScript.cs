@@ -15,7 +15,14 @@ public class EzModuClickScript : MonoBehaviour
 	public GameObject EverythingElse;
 	//Black Blue Green Blue Yellow Red Green Green Red
 
-    void Update()
+	private void Start()
+	{
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
+	}
+
+
+	void Update()
     {
 		if (Input.GetMouseButtonDown(0))
 		{
