@@ -40,6 +40,12 @@ public class DanganSpeechControllerTrial : MonoBehaviour
 		StartedToTalk = true;
 	}
 
+	private void Start()
+	{
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
+	}
+
 	private void Update()
 	{
 		if (StartedToTalk)
