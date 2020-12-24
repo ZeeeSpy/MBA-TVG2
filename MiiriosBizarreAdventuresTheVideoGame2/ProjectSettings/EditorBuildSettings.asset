@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 2ddc6bcd23c78a24aa3c8fd70159d79e
+  - enabled: 1
+    path: Assets/Scenes/PreMaldKing.unity
+    guid: ac5d6ba7c1724f34aba0131654e8c897
+  - enabled: 1
+    path: Assets/Scenes/Level4.2 DanGanDeath.unity
+    guid: ee274cc6008e82e4c8bcc11a3baef061
   m_configObjects: {}

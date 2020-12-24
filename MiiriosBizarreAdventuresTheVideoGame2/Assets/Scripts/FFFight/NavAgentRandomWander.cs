@@ -172,8 +172,7 @@ public class NavAgentRandomWander : MonoBehaviour
 
 	public void DestroySelf()
 	{
-
-		SceneManager.LoadScene("Level3-MaldKing");
+		SceneManager.LoadScene("PreMaldKing");
 		Destroy(gameObject);
 	}
 }

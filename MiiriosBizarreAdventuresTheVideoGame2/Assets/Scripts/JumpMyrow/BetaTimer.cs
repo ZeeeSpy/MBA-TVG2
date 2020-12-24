@@ -11,6 +11,7 @@ public class BetaTimer : MonoBehaviour
 	public Text Timer;
 	public EzModuClickScript EMCS;
 	public GameObject PressMe;
+	private bool acivated = false;
 
 
 	// Update is called once per frame
@@ -27,8 +28,9 @@ public class BetaTimer : MonoBehaviour
 		string tout = string.Format("{0:D2}:{1:D2}:{2:D2}", hours, minutes, tempseconds);
 		Timer.text = tout;
 
-		if (minutes >= 15)
+		if (minutes >= 15 && !acivated)
 		{
+			acivated = true;
 			EMCS.Time = true;
 			PressMe.SetActive(true);
 		}

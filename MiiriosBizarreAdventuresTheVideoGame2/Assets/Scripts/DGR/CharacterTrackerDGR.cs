@@ -8,6 +8,7 @@ public class CharacterTrackerDGR : MonoBehaviour
 {
 	public static CharacterTrackerDGR instance;
 	public Text TrackerText;
+	public GameObject LevelSwitch;
 
 	private void Awake()
 	{
@@ -34,7 +35,8 @@ public class CharacterTrackerDGR : MonoBehaviour
 		TrackerText.text = todisplay;
 		if (count == studentno)
 		{
-			SceneManager.LoadScene("Level4DanganTrial");
+			TrackerText.text = "I'm sleepy, lets go to bed";
+			LevelSwitch.SetActive(true);
 		}
 	}
 }

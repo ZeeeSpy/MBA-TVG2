@@ -6,14 +6,13 @@ public class EzModuClickScript : MonoBehaviour
 {
 	public bool Time = false;
 	public Camera thisCam;
-	string pass = "";
-	string correctpass = "cbcdabba";
-	bool activated = false;
 	public GameObject ToDisable;
 	public GameObject ToEnable;
 
-	public GameObject EverythingElse;
-	//Black Blue Green Blue Yellow Red Green Green Red
+
+	public GameObject Popup;
+
+	public GameObject ClickToOpenPopUp;
 
 	private void Start()
 	{
@@ -37,37 +36,17 @@ public class EzModuClickScript : MonoBehaviour
 					switch (value)
 					{
 						case -2:
-							Application.OpenURL("https://www.twitch.tv/subs/ZeeeSpy");
-							EverythingElse.SetActive(true);
-							break;
-						case -1:
-							pass = "";
+							Popup.SetActive(true);
 							break;
 						case 1:
-							pass = pass + "a";
-							break;
-						case 2:
-							pass = pass + "b";
-							break;
-						case 3:
-							pass = pass + "c";
-							break;
-						case 4:
-							pass = pass + "d";
-							break;
-					}
-
-					Debug.Log(pass);
-					if (pass == correctpass)
-					{
-						if (!activated)
-						{
-							activated = true;
-							//Show video.
+							Popup.SetActive(false);
 							ToDisable.SetActive(false);
 							ToEnable.SetActive(true);
-							EverythingElse.SetActive(false);
-						}
+							ClickToOpenPopUp.SetActive(false);
+							break;
+						case 2:
+							Popup.SetActive(false);
+							break;
 					}
 				}				
 			}
