@@ -2193,7 +2193,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 0.01
+  - 1
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
@@ -5810,7 +5810,7 @@ PrefabInstance:
     - target: {fileID: 4700052134573800602, guid: d83be669a1d7be848ad6694fb54c828b,
         type: 3}
       propertyPath: m_Volume
-      value: 0.06
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4700052134573800603, guid: d83be669a1d7be848ad6694fb54c828b,
         type: 3}
@@ -9923,7 +9923,7 @@ PrefabInstance:
     - target: {fileID: 1351752924386001624, guid: cbc2200382e0fad44ad524139fb80779,
         type: 3}
       propertyPath: m_Volume
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2146107631572678952, guid: cbc2200382e0fad44ad524139fb80779,
         type: 3}
@@ -9973,7 +9973,7 @@ PrefabInstance:
     - target: {fileID: 2146107631632042051, guid: cbc2200382e0fad44ad524139fb80779,
         type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2146107631634043779, guid: cbc2200382e0fad44ad524139fb80779,
         type: 3}
